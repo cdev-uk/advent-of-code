@@ -8,7 +8,7 @@ These are not necessarily the most efficient, elegant or robust solutions. For
 example, I have not always freed memory allocated on the heap, partly because
 these solutions run for a very short period of time - seconds in most cases -
 and the kernel will reclaim any memory allocated to a process when the process
-terminates anyway.
+terminates.
 
 As the input is 'known' there is minimal error checking, real programs would
 have significantly more validation and unit tests.
