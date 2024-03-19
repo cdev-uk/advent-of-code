@@ -53,3 +53,13 @@ e.g.
 ```
 ./test 2015 01
 ```
+
+## Tests
+
+Tests use the Unity framework, which is included as a submodule. Each day has
+its own test source code.
+
+## Header files
+
+Each day has its own header file which contains all the functions for both
+parts. The header file is included by both solution files and the test file.
