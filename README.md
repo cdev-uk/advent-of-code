@@ -28,3 +28,28 @@ clang -Wall -Wextra -Werror
 I have not used `-Weverything` as it is extremely difficult to write code that
 meets every warning available in LLVM, especially when third party libraries
 are used.
+
+There are helper scripts to automatically build and run a day + part solution
+with the relevant arguments:
+
+```
+./run YEAR DAY PART
+```
+
+e.g.
+
+```
+./run 2015 01 a
+```
+
+and also for tests:
+
+```
+./test YEAR DAY
+```
+
+e.g.
+
+```
+./test 2015 01
+```
