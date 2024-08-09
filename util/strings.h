@@ -12,7 +12,7 @@ size_t sub_string(
 ) {
     size_t input_length = strlen(input);
     size_t input_index = 0;
-    size_t output_index = 0;;
+    size_t output_index = 0;
 
     for (
         input_index = start, output_index = 0;
