@@ -14,7 +14,11 @@ size_t sub_string(
     size_t input_index = 0;
     size_t output_index = 0;;
 
-    for (input_index = start, output_index = 0; input_index < end && input_index >= 0 && input_index < input_length && output_index < output_length; input_index++, output_index++) {
+    for (
+        input_index = start, output_index = 0;
+        input_index < end && input_index >= 0 && input_index < input_length && output_index < output_length;
+        input_index++, output_index++
+    ) {
         output[output_index] = input[input_index];
     }
 
