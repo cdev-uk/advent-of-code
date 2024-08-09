@@ -64,6 +64,7 @@ int main(void) {
     UNITY_BEGIN();
 
     RUN_TEST(test_sub_string_empty_string);
+    RUN_TEST(test_sub_string_start_end_equal);
     RUN_TEST(test_sub_string_first_character);
     RUN_TEST(test_sub_string_last_character);
 
