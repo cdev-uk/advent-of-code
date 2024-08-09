@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+set -u
+set -o pipefail
+
+TEST=$1
+
+make build/${TEST}
+./build/${TEST}
