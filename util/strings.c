@@ -20,6 +20,8 @@ void test_sub_string_empty_string(void) {
 
     TEST_ASSERT_EQUAL_size_t(0, sub_string_length);
     TEST_ASSERT_EQUAL_STRING("", output);
+
+    free(output);
 }
 
 void test_sub_string_start_end_equal(void) {
@@ -30,6 +32,8 @@ void test_sub_string_start_end_equal(void) {
 
     TEST_ASSERT_EQUAL_size_t(0, sub_string_length);
     TEST_ASSERT_EQUAL_STRING("", output);
+
+    free(output);
 }
 
 void test_sub_string_first_character(void) {
@@ -40,6 +44,8 @@ void test_sub_string_first_character(void) {
 
     TEST_ASSERT_EQUAL_size_t(1, sub_string_length);
     TEST_ASSERT_EQUAL_STRING("a", output);
+
+    free(output);
 }
 
 void test_sub_string_last_character(void) {
@@ -50,6 +56,8 @@ void test_sub_string_last_character(void) {
 
     TEST_ASSERT_EQUAL_size_t(1, sub_string_length);
     TEST_ASSERT_EQUAL_STRING("e", output);
+
+    free(output);
 }
 
 int main(void) {
