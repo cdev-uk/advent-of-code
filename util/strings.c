@@ -23,13 +23,23 @@ void test_sub_string_empty_string(void) {
 }
 
 void test_sub_string_first_character(void) {
-    const char *input = "hello";
+    const char *input = "abcde";
     size_t output_length = strlen(input);
     char *output = calloc(output_length, sizeof(char));
     size_t sub_string_length = sub_string(input, 0, 0, output, output_length);
 
     TEST_ASSERT_EQUAL_size_t(1, sub_string_length);
-    TEST_ASSERT_EQUAL_STRING("h", output);
+    TEST_ASSERT_EQUAL_STRING("a", output);
+}
+
+void test_sub_string_last_character(void) {
+    const char *input = "abcde";
+    size_t output_length = strlen(input);
+    char *output = calloc(output_length, sizeof(char));
+    size_t sub_string_length = sub_string(input, 4, 4, output, output_length);
+
+    TEST_ASSERT_EQUAL_size_t(1, sub_string_length);
+    TEST_ASSERT_EQUAL_STRING("e", output);
 }
 
 int main(void) {
@@ -37,6 +47,7 @@ int main(void) {
 
     RUN_TEST(test_sub_string_empty_string);
     RUN_TEST(test_sub_string_first_character);
+    RUN_TEST(test_sub_string_last_character);
 
     return UNITY_END();
 }
