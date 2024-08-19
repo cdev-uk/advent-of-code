@@ -71,6 +71,16 @@ void test_char_count(void) {
     TEST_ASSERT_EQUAL_size_t(2, char_count("axaxa", 'x'));
 }
 
+void test_char_position(void) {
+    TEST_ASSERT_EQUAL_INT(-1, char_position("abcde", 'f', 0));
+    TEST_ASSERT_EQUAL_INT(-1, char_position("abcde", 'f', 4));
+    TEST_ASSERT_EQUAL_INT(0, char_position("abcde", 'a', 0));
+    TEST_ASSERT_EQUAL_INT(0, char_position("axxxa", 'a', 0));
+    TEST_ASSERT_EQUAL_INT(4, char_position("axxxa", 'a', 1));
+    TEST_ASSERT_EQUAL_INT(0, char_position("xaxax", 'x', 0));
+    TEST_ASSERT_EQUAL_INT(2, char_position("xaxax", 'x', 1));
+}
+
 int main(void) {
     UNITY_BEGIN();
 
@@ -80,6 +90,8 @@ int main(void) {
     RUN_TEST(test_sub_string_last_character);
 
     RUN_TEST(test_char_count);
+
+    RUN_TEST(test_char_position);
 
     return UNITY_END();
 }

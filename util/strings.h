@@ -49,3 +49,30 @@ size_t char_count(
 
     return count;
 }
+
+int char_position(
+    const char *restrict input,
+    const char search,
+    int search_index
+) {
+    size_t input_length = strlen(input);
+    size_t input_index = 0;
+    int count = 0;
+    int position = -1;
+
+    for (
+        input_index = 0;
+        input_index < input_length && position == -1;
+        input_index++
+    ) {
+        if (input[input_index] == search) {
+            if (count == search_index) {
+                position = input_index;
+            } else {
+                count++;
+            }
+        }
+    }
+
+    return position;
+}
