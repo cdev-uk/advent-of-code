@@ -28,3 +28,24 @@ size_t sub_string(
 
     return output_index;
 }
+
+size_t char_count(
+    const char *restrict input,
+    const char search
+) {
+    size_t input_length = strlen(input);
+    size_t input_index;
+    size_t count;
+
+    for (
+        input_index = 0, count = 0;
+        input_index < input_length;
+        input_index++
+    ) {
+        if (input[input_index] == search) {
+            count++;
+        }
+    }
+
+    return count;
+}
