@@ -112,6 +112,16 @@ void test_explode_sub_string_last(void) {
     free(output);
 }
 
+void test_explode_sub_string_empty_result(void) {
+    size_t output_length = 20;
+    char *output = calloc(output_length, sizeof(char));
+    explode_sub_string("x2x3", 'x', 0, output, output_length);
+
+    TEST_ASSERT_EQUAL_STRING("", output);
+
+    free(output);
+}
+
 void test_explode_sub_string_no_separator_match(void) {
     size_t output_length = 20;
     char *output = calloc(output_length, sizeof(char));
