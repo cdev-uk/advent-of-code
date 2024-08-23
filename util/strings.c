@@ -122,6 +122,41 @@ void test_explode_sub_string_empty_result(void) {
     free(output);
 }
 
+void test_explode_sub_string_all_separators(void) {
+    size_t output_length = 20;
+    char *output;
+
+    output = calloc(output_length, sizeof(char));
+    explode_sub_string("xxxxx", 'x', 0, output, output_length);
+    TEST_ASSERT_EQUAL_STRING("", output);
+    free(output);
+
+    output = calloc(output_length, sizeof(char));
+    explode_sub_string("xxxxx", 'x', 1, output, output_length);
+    TEST_ASSERT_EQUAL_STRING("", output);
+    free(output);
+
+    output = calloc(output_length, sizeof(char));
+    explode_sub_string("xxxxx", 'x', 2, output, output_length);
+    TEST_ASSERT_EQUAL_STRING("", output);
+    free(output);
+
+    output = calloc(output_length, sizeof(char));
+    explode_sub_string("xxxxx", 'x', 3, output, output_length);
+    TEST_ASSERT_EQUAL_STRING("", output);
+    free(output);
+
+    output = calloc(output_length, sizeof(char));
+    explode_sub_string("xxxxx", 'x', 4, output, output_length);
+    TEST_ASSERT_EQUAL_STRING("", output);
+    free(output);
+
+    output = calloc(output_length, sizeof(char));
+    explode_sub_string("xxxxx", 'x', 5, output, output_length);
+    TEST_ASSERT_EQUAL_STRING("", output);
+    free(output);
+}
+
 void test_explode_sub_string_no_separator_match(void) {
     size_t output_length = 20;
     char *output = calloc(output_length, sizeof(char));
@@ -157,6 +192,7 @@ int main(void) {
     RUN_TEST(test_explode_sub_string_first);
     RUN_TEST(test_explode_sub_string_middle);
     RUN_TEST(test_explode_sub_string_last);
+    RUN_TEST(test_explode_sub_string_all_separators);
     RUN_TEST(test_explode_sub_string_no_separator_match);
     RUN_TEST(test_explode_sub_string_index_too_high);
 
