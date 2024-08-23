@@ -79,6 +79,57 @@ void test_char_position(void) {
     TEST_ASSERT_EQUAL_INT(4, char_position("axxxa", 'a', 1));
     TEST_ASSERT_EQUAL_INT(0, char_position("xaxax", 'x', 0));
     TEST_ASSERT_EQUAL_INT(2, char_position("xaxax", 'x', 1));
+    TEST_ASSERT_EQUAL_INT(1, char_position("1x2x3", 'x', 0));
+}
+
+void test_explode_sub_string_first(void) {
+    size_t output_length = 20;
+    char *output = calloc(output_length, sizeof(char));
+    explode_sub_string("1x2x3", 'x', 0, output, output_length);
+
+    TEST_ASSERT_EQUAL_STRING("1", output);
+
+    free(output);
+}
+
+void test_explode_sub_string_middle(void) {
+    size_t output_length = 20;
+    char *output = calloc(output_length, sizeof(char));
+    explode_sub_string("1x2x3", 'x', 1, output, output_length);
+
+    TEST_ASSERT_EQUAL_STRING("2", output);
+
+    free(output);
+}
+
+void test_explode_sub_string_last(void) {
+    size_t output_length = 20;
+    char *output = calloc(output_length, sizeof(char));
+    explode_sub_string("1x2x3", 'x', 2, output, output_length);
+
+    TEST_ASSERT_EQUAL_STRING("3", output);
+
+    free(output);
+}
+
+void test_explode_sub_string_no_separator_match(void) {
+    size_t output_length = 20;
+    char *output = calloc(output_length, sizeof(char));
+    explode_sub_string("1x2x3", 'y', 0, output, output_length);
+
+    TEST_ASSERT_EQUAL_STRING("1x2x3", output);
+
+    free(output);
+}
+
+void test_explode_sub_string_index_too_high(void) {
+    size_t output_length = 20;
+    char *output = calloc(output_length, sizeof(char));
+    explode_sub_string("1x2x3", 'y', 3, output, output_length);
+
+    TEST_ASSERT_EQUAL_STRING("", output);
+
+    free(output);
 }
 
 int main(void) {
@@ -92,6 +143,12 @@ int main(void) {
     RUN_TEST(test_char_count);
 
     RUN_TEST(test_char_position);
+
+    RUN_TEST(test_explode_sub_string_first);
+    RUN_TEST(test_explode_sub_string_middle);
+    RUN_TEST(test_explode_sub_string_last);
+    RUN_TEST(test_explode_sub_string_no_separator_match);
+    RUN_TEST(test_explode_sub_string_index_too_high);
 
     return UNITY_END();
 }
