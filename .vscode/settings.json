@@ -1,6 +1,6 @@
 {
     "files.associations": {
-        "unity.h": "c"
+        "*.h": "c",
     },
     "cmake.configureOnOpen": false
 }
