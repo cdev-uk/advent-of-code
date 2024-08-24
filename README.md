@@ -63,3 +63,8 @@ its own test source code.
 
 Each day has its own header file which contains all the functions for both
 parts. The header file is included by both solution files and the test file.
+Normally the header file would contain the function declarations and the definition
+(i.e. the function body) would be in a separate .c file, however as these solutions
+only build one .c file to one executable this does not cause compilation or linker
+errors. If the .h files were included in multiple .c files which were combined
+into a single executable then this would likely cause duplication definition errors.
